@@ -74,10 +74,21 @@ npm run dev
 npm run build
 ```
 
+## GitHub Pages 배포
+
+이 프로젝트는 저장소 주소가 `https://totoro00joon-svg.github.io/health-tracker/`인 상황에 맞춰 `vite.config.js`의 `base`가 `/health-tracker/`로 설정되어 있습니다.
+
+GitHub에 올릴 때는 원본 파일만 올리고, 저장소의 `Settings > Pages`에서 `Build and deployment` 소스를 `GitHub Actions`로 선택하세요. 이후 `main` 브랜치에 푸시하면 `.github/workflows/deploy.yml`이 자동으로 `dist`를 빌드해서 GitHub Pages에 배포합니다.
+
+직접 배포한다면 `npm run build` 후 생성되는 `dist` 폴더의 내용이 GitHub Pages에 올라가야 합니다. Vite 원본 `index.html`을 그대로 Pages에 올리면 흰 화면이 나올 수 있습니다.
+
 ## 파일 구조
 
 ```text
 .
+├─ .github
+│  └─ workflows
+│     └─ deploy.yml
 ├─ index.html
 ├─ package.json
 ├─ postcss.config.js
